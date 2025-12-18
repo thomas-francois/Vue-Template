@@ -1,0 +1,11 @@
+setup:
+	bun install
+
+dev:
+	bun run dev
+
+build:
+	bun run build
+
+format:
+	bun run format

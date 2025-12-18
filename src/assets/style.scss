@@ -1,0 +1,15 @@
+@use "@picocss/pico/scss/pico" with (
+  $theme-color: "sand",
+  $enable-semantic-container: true,
+  $enable-classes: true
+);
+@import "overides";
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("@/assets/fonts/RobotoMono-VariableFont_wght.ttf") format("truetype");
+  font-display: swap;
+}
+
+* {
+}

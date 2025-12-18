@@ -1,0 +1,33 @@
+@import "mixins";
+
+:root {
+  --pico-font-family: Roboto Mono, monospace;
+  --pico-font-weight: 300;
+  --pico-font-size: 118.75%; // Before: 131.25%
+}
+
+@include huge {
+  :root {
+    --pico-font-size: 112.5%; // Before : 125%
+  }
+}
+@include large {
+  :root {
+    --pico-font-size: 106.25%; // Before : 118.75%
+  }
+}
+@include medium {
+  :root {
+    --pico-font-size: 100%; // Before : 112.5%
+  }
+}
+@include small {
+  :root {
+    --pico-font-size: 93.75%; // Before : 106.25%
+  }
+}
+@include tiny {
+  :root {
+    --pico-font-size: 87.5%; // Before: 100%
+  }
+}

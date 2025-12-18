@@ -1,0 +1,10 @@
+// prettier-ignore
+@mixin tiny { @media (max-width: 576px) { @content; }}
+// prettier-ignore
+@mixin small { @media (max-width: 768px) { @content; }}
+// prettier-ignore
+@mixin medium { @media (max-width: 1024px) { @content; }}
+// prettier-ignore
+@mixin large { @media (max-width: 1280px) { @content; }}
+// prettier-ignore
+@mixin huge { @media (max-width: 1536px) { @content; }}
