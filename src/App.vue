@@ -1,6 +1,8 @@
 <template>
   <Navbar />
-  <router-view />
+  <main>
+    <router-view />
+  </main>
 </template>
 
 <script>
@@ -19,7 +21,9 @@ export default {
     };
   },
   methods: {},
-  mounted() {},
+  mounted() {
+    this.settings.setTheme(this.settings.theme);
+  },
 };
 </script>
 

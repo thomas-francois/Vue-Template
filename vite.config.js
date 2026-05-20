@@ -16,7 +16,7 @@ export default defineConfig({
     svgLoader(),
     Sitemap({
       hostname: 'https://example.com',
-      dynamicRoutes: routes.map(r => r.path)
+      dynamicRoutes: routes.map(r => r.path || `/${r.name.toLowerCase()}`),
     }),
   ],
   css: {

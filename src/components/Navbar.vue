@@ -2,29 +2,28 @@
   <nav>
     <ul>
       <li><router-link to="/">Home</router-link></li>
-      <li>|</li>
       <li><router-link to="/page">Page</router-link></li>
     </ul>
     <ul>
       <li>
-        <a
-          href="#"
-          data-theme-switcher="dark"
+        <button
+          type="button"
+          :aria-pressed="settings.theme === 'dark'"
+          aria-label="Use dark theme"
           @click="settings.setTheme('dark')"
         >
-          <Moon />
-          Dark
-        </a>
+          <Moon aria-hidden="true" /> Dark
+        </button>
       </li>
       <li>
-        <a
-          href="#"
-          data-theme-switcher="light"
+        <button
+          type="button"
+          :aria-pressed="settings.theme === 'light'"
+          aria-label="Use light theme"
           @click="settings.setTheme('light')"
         >
-          <Sun />
-          Light
-        </a>
+          <Sun aria-hidden="true" /> Light
+        </button>
       </li>
     </ul>
   </nav>
@@ -53,9 +52,24 @@ export default {
 
 <style scoped>
 nav {
+  padding: 0 var(--pico-block-spacing-horizontal);
+
   svg {
     height: 1.5rem;
+    vertical-align: middle;
   }
-  padding: 0 var(--pico-block-spacing-horizontal);
+
+  button {
+    padding: 0.25rem 0.5rem;
+    background: none;
+    border: none;
+    color: inherit;
+  }
+
+  ul li + li::before {
+    content: "|";
+    margin-right: 1rem;
+    opacity: .4;
+  }
 }
 </style>
