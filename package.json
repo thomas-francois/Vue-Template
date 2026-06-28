@@ -9,7 +9,6 @@
     "format": "prettier --write 'src/**/*.{vue,js,html,css,scss}'"
   },
   "dependencies": {
-    "@picocss/pico": "latest",
     "highlight.js": "^11.11.1",
     "material-symbols": "^0.45.4",
     "pinia": "latest",
