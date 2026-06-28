@@ -1,44 +1,32 @@
 <template>
   <nav>
-    <ul>
+    <button
+      type="button"
+      aria-label="Open menu"
+    >
+      <span class="material-symbols-rounded">menu</span>
+    </button>
+    <ul role="list">
       <li><router-link to="/">Home</router-link></li>
       <li><router-link to="/page">Page</router-link></li>
     </ul>
-    <ul>
-      <li>
-        <button
-          type="button"
-          :aria-pressed="settings.theme === 'dark'"
-          aria-label="Use dark theme"
-          @click="settings.setTheme('dark')"
-        >
-          <Moon aria-hidden="true" /> Dark
-        </button>
-      </li>
-      <li>
-        <button
-          type="button"
-          :aria-pressed="settings.theme === 'light'"
-          aria-label="Use light theme"
-          @click="settings.setTheme('light')"
-        >
-          <Sun aria-hidden="true" /> Light
-        </button>
-      </li>
-    </ul>
+    <button
+      type="button"
+      aria-label="Toggle theme"
+      @click="settings.toggleTheme()"
+    >
+      <span v-if="settings.theme == 'light'" class="material-symbols-rounded">bedtime</span>
+      <span v-if="settings.theme == 'dark'" class="material-symbols-rounded">wb_sunny</span>
+    </button>
   </nav>
 </template>
 
 <script>
 import { settings } from "@/stores/settings";
-import Moon from "@/assets/svg/moon.svg";
-import Sun from "@/assets/svg/sun.svg";
 
 export default {
   name: "Navbar",
   components: {
-    Moon,
-    Sun,
   },
   data() {
     return {
@@ -50,26 +38,36 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 nav {
-  padding: 0 var(--pico-block-spacing-horizontal);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: var(--space-xs) calc((100vw - 1000px) / 4 - 24px);
 
-  svg {
-    height: 1.5rem;
-    vertical-align: middle;
+  @include large {
+    width: 100%;
+    max-width: 1000px;
+    margin: var(--space-xs) auto;
   }
 
-  button {
-    padding: 0.25rem 0.5rem;
-    background: none;
-    border: none;
-    color: inherit;
+  @include medium {
+    width: auto;
+    max-width: auto;
+    margin: var(--space-xs) calc(var(--space-xs-s) + var(--space-s));
   }
 
-  ul li + li::before {
-    content: "|";
-    margin-right: 1rem;
-    opacity: .4;
+  ul {
+    display: flex;
+    gap: var(--space-s);
+  }
+
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 </style>

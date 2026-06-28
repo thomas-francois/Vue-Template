@@ -1,10 +1,8 @@
 <template>
-  <article>
-    <header>
-      <h1>404: Page not found</h1>
-    </header>
-      <router-link to="/">Back to home</router-link>
-  </article>
+  <main class="mainlines">
+    <h1>404: Page not found</h1>
+    <router-link to="/">Back to home</router-link>
+  </main>
 </template>
 
 <script>
@@ -23,4 +21,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+  main {
+    width: 100%;
+  }
+</style>

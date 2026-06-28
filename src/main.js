@@ -1,4 +1,5 @@
 import "./assets/style.scss";
+import "material-symbols";
 
 import App from "./App.vue";
 
