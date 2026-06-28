@@ -1,0 +1,64 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior: none;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  tab-size: 4;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-size: var(--font-0);
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  overflow-wrap: break-word;
+}
+
+h1 { font-size: var(--font-5); }
+h2 { font-size: var(--font-4); }
+h3 { font-size: var(--font-3); }
+h4 { font-size: var(--font-2); }
+h5 { font-size: var(--font-1); }
+h6 { font-size: var(--font-0); }
+p, li { font-size: var(--font-0); }
+small { font-size: var(--font--1); }
+
+a {
+	color: inherit;
+	text-underline-offset: 0.15em;
+	text-decoration-skip-ink: auto;
+  cursor: pointer;
+}
+
+svg {
+  fill: currentColor;
+}
+
+:where(ul, ol)[role="list"] {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+}

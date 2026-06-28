@@ -8,7 +8,11 @@ export const settings = defineStore("settings", {
     setTheme(theme) {
       this.theme = theme;
       localStorage.setItem("theme", theme);
-      document.documentElement.setAttribute("data-theme", theme);
+      document.documentElement.style.colorScheme = theme;
     },
+    toggleTheme() {
+      this.theme = this.theme === "dark" ? "light" : "dark";
+      this.setTheme(this.theme);
+    }
   },
 });

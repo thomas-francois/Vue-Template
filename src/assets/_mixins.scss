@@ -1,10 +1,10 @@
 // prettier-ignore
-@mixin tiny { @media (max-width: 576px) { @content; }}
+@mixin tiny { @media (max-width: 580px) { @content; }}
 // prettier-ignore
-@mixin small { @media (max-width: 768px) { @content; }}
+@mixin small { @media (max-width: 770px) { @content; }}
 // prettier-ignore
-@mixin medium { @media (max-width: 1024px) { @content; }}
+@mixin medium { @media (max-width: 1060px) { @content; }}
 // prettier-ignore
 @mixin large { @media (max-width: 1280px) { @content; }}
 // prettier-ignore
-@mixin huge { @media (max-width: 1536px) { @content; }}
+@mixin huge { @media (max-width: 1540px) { @content; }}

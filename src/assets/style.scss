@@ -1,9 +1,56 @@
-@use "@picocss/pico/scss/pico" with (
-  $theme-color: "sand",
-  $enable-semantic-container: true,
-  $enable-classes: true
-);
-@import "overides";
+@use 'utopia-core-scss/src/utopia' as utopia;
+@use '_reset.scss';
+
+:root {
+  /* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1280,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-3xl&g=s,l,xl,12 */
+  @include utopia.generateSpaceScale((
+    "minWidth": 320,
+    "maxWidth": 1280,
+    "minSize": 18,
+    "maxSize": 20,
+    "positiveSteps": (1.5, 2, 3, 4, 6),
+    "negativeSteps": (0.75, 0.5, 0.25),
+    "customSizes": ("xs-3xl"),
+    "prefix": "space-",
+    "relativeTo": "viewport-width",
+  ));
+
+  /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1280,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  @include utopia.generateTypeScale((
+    "minWidth": 320,
+    "maxWidth": 1280,
+    "minFontSize": 18,
+    "maxFontSize": 20,
+    "minTypeScale": 1.2,
+    "maxTypeScale": 1.25,
+    "positiveSteps": 5,
+    "negativeSteps": 2,
+    "prefix": "font-",
+    "relativeTo": "viewport-width"
+  ));
+
+  color-scheme: light dark;
+  --color-bg-raw: light-dark(#d6d5cf, #141412);
+  --color-bg: light-dark(#d6d5cf, #181815);
+  --color-overlay: light-dark(#00000010, #FFFFFF10);
+  --color-accent: light-dark(#226e82, #C8F4FE);
+  --color-text: light-dark(#1A1A1A, #d6d5cf);
+  --color-text-contrast: light-dark(#d6d5cf, #1A1A1A);
+
+  --font-mono: "Roboto Mono", monospace;
+  --font-sans: ui-sans-serif, sans-serif;
+
+  --radius-s: 0.25rem;
+  --radius-m: 0.5rem;
+  --radius-l: 1rem;
+
+  --shadow-s: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-m: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-l: 0 12px 32px rgba(0, 0, 0, 0.15);
+
+  --pointer-x: -100px;
+  --pointer-y: -100px;
+}
 
 @font-face {
   font-family: "Roboto Mono";
@@ -11,5 +58,39 @@
   font-display: swap;
 }
 
-* {
+
+.mainlines {
+  position: relative;
+  align-self: center;
+  max-width: 1060px;
+  margin: 10px var(--space-xs-s);
+  margin-bottom: var(--space-xs-s);
+  padding: var(--space-s-m);
+  background-color: var(--color-overlay);
+
+  &::before, &::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    opacity: 0.1;
+  }
+
+  &::before {
+    top: 0;
+    bottom: 0;
+    left: -100vw;
+    width: 200vw;
+    border-top: 1px dashed var(--color-text);
+    border-bottom: 1px dashed var(--color-text);
+  }
+
+  &::after {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: max(var(--space-xs-s), calc(50vw - 530px));
+    right: max(var(--space-xs-s), calc(50vw - 530px));
+    border-right: 1px dashed var(--color-text);
+    border-left: 1px dashed var(--color-text);
+  }
 }
